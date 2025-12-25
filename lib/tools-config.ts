@@ -1,4 +1,4 @@
-import { Code2, Wand2, Sparkles, Minimize2, GitCompare, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, Minimize2, GitCompare, Database, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -83,6 +83,21 @@ export const tools: Tool[] = [
       "compare SQL",
       "SQL difference",
       "diff SQL queries",
+    ],
+  },
+  {
+    slug: "dbml-to-sql",
+    name: "DBML to SQL",
+    description:
+      "Convert DBML database schemas to SQL DDL statements. Supports PostgreSQL, MySQL, and SQL Server. All conversion happens in your browser - your DBML is never sent to any server.",
+    shortDescription: "Convert DBML schemas to SQL DDL",
+    icon: Database,
+    keywords: [
+      "DBML to SQL",
+      "DBML converter",
+      "DBML to PostgreSQL",
+      "DBML to MySQL",
+      "database schema converter",
     ],
   },
 ];
