@@ -131,3 +131,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Monaco Editor Error Highlighting */
+.monaco-editor .sql-error-line,
+.monaco-editor .view-overlays .sql-error-line {
+  background: rgba(239, 68, 68, 0.15) !important;
+}
+
+.monaco-editor .sql-error-line-inline {
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+.monaco-editor .sql-error-margin {
+  background: rgba(239, 68, 68, 0.15) !important;
+}
+
+.monaco-editor .margin-view-overlays .sql-error-glyph {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5' fill='%23ef4444'/%3E%3Cpath d='M8 5v4M8 10.5v.5' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center center no-repeat !important;
+  background-size: 14px 14px !important;
+  margin-left: 4px;
+}
+
+.monaco-editor .sql-error-line-decoration {
+  background: #ef4444 !important;
+  width: 3px !important;
+  margin-left: 0 !important;
+}
+
+/* Dark mode - slightly brighter red */
+.dark .monaco-editor .sql-error-line,
+.dark .monaco-editor .view-overlays .sql-error-line,
+.dark .monaco-editor .sql-error-margin {
+  background: rgba(239, 68, 68, 0.22) !important;
+}
+
+.dark .monaco-editor .sql-error-line-inline {
+  background: rgba(239, 68, 68, 0.18) !important;
+}

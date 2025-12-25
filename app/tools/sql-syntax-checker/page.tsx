@@ -35,6 +35,13 @@ export default function SQLSyntaxCheckerPage() {
     setResult(null);
   }, []);
 
+  const handleSQLChange = useCallback((newSQL: string) => {
+    setSQL(newSQL);
+    if (result) {
+      setResult(null);
+    }
+  }, [result]);
+
   const handleDialectChange = useCallback((newDialect: SQLDialect) => {
     setDialect(newDialect);
     setResult(null);
@@ -73,22 +80,28 @@ export default function SQLSyntaxCheckerPage() {
           </div>
         </div>
 
+        {/* Error Result - Above Editor */}
+        <ValidationResultDisplay result={result} sql={sql} />
+
         {/* SQL Editor */}
         <SQLEditor
           value={sql}
-          onChange={setSQL}
+          onChange={handleSQLChange}
           dialect={dialect}
           placeholder="Enter your SQL query here..."
+          validationResult={result}
         />
 
         {/* Validate Button */}
-        <Button onClick={handleValidate} className="w-full sm:w-auto" size="lg">
+        <Button
+          onClick={handleValidate}
+          className="w-full sm:w-auto"
+          size="lg"
+          disabled={!sql.trim()}
+        >
           <Play className="mr-2 h-4 w-4" />
           Validate SQL
         </Button>
-
-        {/* Results */}
-        <ValidationResultDisplay result={result} />
 
         {/* Privacy Note */}
         <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/20 p-4">
