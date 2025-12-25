@@ -92,7 +92,7 @@ export default function SQLSyntaxCheckerPage() {
 
         {/* Privacy Note */}
         <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/20 p-4">
-          <Shield className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+          <Shield className="h-5 w-5 text-teal-600 flex-shrink-0 mt-0.5" />
           <div>
             <p className="text-sm font-medium">Your data stays private</p>
             <p className="text-sm text-muted-foreground mt-1">
@@ -107,7 +107,7 @@ export default function SQLSyntaxCheckerPage() {
       <FAQSection />
 
       {/* CTA Section */}
-      <section className="mt-12 rounded-lg border border-primary/20 bg-primary/5 p-6 text-center">
+      <section className="mt-12 rounded-lg border border-teal-500/20 bg-teal-50 dark:bg-teal-950/20 p-6 text-center">
         <h2 className="text-xl font-semibold">Need to visualize your database schema?</h2>
         <p className="mt-2 text-muted-foreground">
           ChartDB instantly creates beautiful ERD diagrams from your database. No direct

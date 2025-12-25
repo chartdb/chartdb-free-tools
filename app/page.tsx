@@ -14,7 +14,7 @@ export default function HomePage() {
             href="https://chartdb.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="text-teal-600 hover:underline font-medium"
           >
             ChartDB
           </a>
