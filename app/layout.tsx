@@ -60,6 +60,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://chartdb.io/tools",
+  },
 };
 
 export default function RootLayout({
