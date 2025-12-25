@@ -1,9 +1,12 @@
-import { CheckCircle2, Info } from "lucide-react";
-import type { ValidationResult } from "@/lib/sql-validator";
+import { CheckCircle2, Info, Sparkles } from "lucide-react";
+import type { ValidationResult, SQLDialect } from "@/lib/sql-validator";
 
 interface ValidationResultDisplayProps {
   result: ValidationResult | null;
   sql?: string;
+  dialect?: SQLDialect;
+  onFixWithAI?: () => void;
+  isFixingWithAI?: boolean;
 }
 
 // Extract the token at or near the error location from the SQL
@@ -84,7 +87,7 @@ function humanizeErrorMessage(error: { message: string; location?: { line: numbe
   return "syntax error in query";
 }
 
-export function ValidationResultDisplay({ result, sql }: ValidationResultDisplayProps) {
+export function ValidationResultDisplay({ result, sql, onFixWithAI, isFixingWithAI }: ValidationResultDisplayProps) {
   // Don't show anything when there's no result yet
   if (!result) {
     return null;
@@ -121,14 +124,16 @@ export function ValidationResultDisplay({ result, sql }: ValidationResultDisplay
           <p className="text-sm text-foreground/80 mt-1 break-words">
             {errorDetails}
           </p>
-          <a
-            href="https://chartdb.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-500 dark:hover:text-teal-400 mt-2 hover:underline"
-          >
-            Try ChartDB to visualize your schema →
-          </a>
+          {onFixWithAI && (
+            <button
+              onClick={onFixWithAI}
+              disabled={isFixingWithAI}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 hover:underline disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              {isFixingWithAI ? "Fixing..." : "Fix and explain query using AI"}
+            </button>
+          )}
         </div>
       </div>
     </div>
