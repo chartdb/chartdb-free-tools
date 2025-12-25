@@ -1,4 +1,4 @@
-import { Code2, Wand2, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -38,6 +38,21 @@ export const tools: Tool[] = [
       "format SQL",
       "beautify SQL",
       "SQL pretty print",
+    ],
+  },
+  {
+    slug: "text-to-sql",
+    name: "Text to SQL",
+    description:
+      "Transform natural language into SQL queries using AI. Describe what you need in plain English and get the SQL code. Supports PostgreSQL, MySQL, SQL Server, and more.",
+    shortDescription: "Convert natural language to SQL queries with AI",
+    icon: Sparkles,
+    keywords: [
+      "text to SQL",
+      "natural language SQL",
+      "AI SQL generator",
+      "English to SQL",
+      "SQL from text",
     ],
   },
 ];

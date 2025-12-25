@@ -39,6 +39,12 @@ const toolsCollectionJsonLd = {
         name: "SQL Formatter",
         url: "https://chartdb.io/tools/sql-formatter",
       },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Text to SQL AI Converter",
+        url: "https://chartdb.io/tools/text-to-sql",
+      },
     ],
   },
 };
