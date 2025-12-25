@@ -1,4 +1,4 @@
-import { Code2, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -23,6 +23,21 @@ export const tools: Tool[] = [
       "SQL linter",
       "validate SQL",
       "check SQL syntax",
+    ],
+  },
+  {
+    slug: "sql-formatter",
+    name: "SQL Formatter",
+    description:
+      "Format and beautify your SQL queries instantly. Supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, BigQuery, and more. All formatting happens in your browser - your SQL is never sent to any server.",
+    shortDescription: "Beautify and format SQL queries with customizable options",
+    icon: Wand2,
+    keywords: [
+      "SQL formatter",
+      "SQL beautifier",
+      "format SQL",
+      "beautify SQL",
+      "SQL pretty print",
     ],
   },
 ];
