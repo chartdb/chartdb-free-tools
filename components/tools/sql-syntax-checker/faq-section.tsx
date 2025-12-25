@@ -27,16 +27,6 @@ const faqs = [
       "This tool detects syntax errors such as missing keywords, incorrect clause ordering, unmatched parentheses, invalid operators, and malformed expressions. It cannot verify whether tables, columns, or other database objects actually exist in your database - that requires a connection to your actual database.",
   },
   {
-    question: "Can I use this tool offline?",
-    answer:
-      "Once the page is loaded, the validation works entirely in your browser without requiring an internet connection. However, you'll need to be online initially to load the page.",
-  },
-  {
-    question: "Why might valid SQL still show as an error?",
-    answer:
-      "Some database-specific syntax or newer features might not be fully supported by our parser. If you're confident your SQL is correct for your specific database version, it should still work when executed. Also make sure you've selected the correct dialect for your database.",
-  },
-  {
     question: "What is ChartDB?",
     answer: (
       <>
