@@ -296,7 +296,7 @@ ORDER BY created_at`);
           database access required.
         </p>
         <Button asChild className="mt-4">
-          <a href="https://app.chartdb.io" target="_blank" rel="noopener noreferrer">
+          <a href="https://app.chartdb.io">
             Try ChartDB Free
           </a>
         </Button>
