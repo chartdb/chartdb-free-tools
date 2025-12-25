@@ -5,7 +5,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "SQL Syntax Checker Online | SQL Validator - ChartDB",
   description:
-    "Free online SQL syntax checker and validator. Quickly check your SQL queries for syntax errors and identify issues. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
+    "Free online SQL syntax checker. Check your SQL for errors instantly. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
   keywords: [
     "SQL syntax checker",
     "SQL validator",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "SQL Syntax Checker Online | SQL Validator - ChartDB",
     description:
       "Free online SQL syntax checker and validator. Quickly check your SQL queries for syntax errors. Supports PostgreSQL, MySQL & more.",
-    url: "https://tools.chartdb.io/tools/sql-syntax-checker",
+    url: "https://chartdb.io/tools/sql-syntax-checker",
     type: "website",
   },
   twitter: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Free online SQL syntax checker and validator. Quickly check your SQL queries for syntax errors. Supports PostgreSQL, MySQL & more.",
   },
   alternates: {
-    canonical: "https://tools.chartdb.io/tools/sql-syntax-checker",
+    canonical: "https://chartdb.io/tools/sql-syntax-checker",
   },
 };
 
@@ -45,7 +45,7 @@ const jsonLd = {
   alternateName: ["SQL Validator", "SQL Syntax Checker"],
   description:
     "Free online SQL syntax checker and validator. Quickly check your SQL queries for syntax errors and identify issues. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
-  url: "https://tools.chartdb.io/tools/sql-syntax-checker",
+  url: "https://chartdb.io/tools/sql-syntax-checker",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
   offers: {

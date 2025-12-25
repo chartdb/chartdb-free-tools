@@ -7,7 +7,7 @@ const jsonLd = {
   "@type": "WebSite",
   name: "ChartDB Tools",
   alternateName: "Free SQL Tools Online",
-  url: "https://tools.chartdb.io/tools",
+  url: "https://chartdb.io/tools",
   description:
     "Free online SQL and database tools. SQL syntax checker, SQL validator & more. Privacy-focused - runs in your browser.",
   publisher: {
@@ -23,7 +23,7 @@ const toolsCollectionJsonLd = {
   name: "Free SQL Tools Online",
   description:
     "A collection of free, privacy-focused SQL and database tools by ChartDB.",
-  url: "https://tools.chartdb.io/tools",
+  url: "https://chartdb.io/tools",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: [
@@ -31,7 +31,7 @@ const toolsCollectionJsonLd = {
         "@type": "ListItem",
         position: 1,
         name: "SQL Syntax Checker",
-        url: "https://tools.chartdb.io/tools/sql-syntax-checker",
+        url: "https://chartdb.io/tools/sql-syntax-checker",
       },
     ],
   },
