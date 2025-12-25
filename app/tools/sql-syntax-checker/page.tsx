@@ -186,7 +186,7 @@ ORDER BY created_at`);
             Free Tool
           </Badge>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">SQL Syntax Checker</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Free SQL Syntax Checker</h1>
         <p className="mt-2 text-lg text-muted-foreground">
           Validate your SQL queries instantly. Supports multiple database dialects.
         </p>
