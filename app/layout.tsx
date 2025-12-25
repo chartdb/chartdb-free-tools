@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     "free database tools",
   ],
   authors: [{ name: "ChartDB", url: "https://chartdb.io" }],
-  metadataBase: new URL("https://tools.chartdb.io"),
+  metadataBase: new URL("https://tools.chartdb.io/tools"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tools.chartdb.io",
+    url: "https://tools.chartdb.io/tools",
     siteName: "ChartDB Tools",
     title: "Free SQL Tools Online | Database Tools - ChartDB",
     description:
