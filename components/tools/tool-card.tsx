@@ -13,10 +13,10 @@ export function ToolCard({ tool }: ToolCardProps) {
 
   return (
     <Link href={`/tools/${tool.slug}`} className="group block">
-      <Card className="h-full transition-all duration-200 hover:border-primary/50 hover:shadow-md">
+      <Card className="h-full transition-all duration-200 hover:border-teal-500/50 hover:shadow-md">
         <CardHeader>
           <div className="flex items-start justify-between">
-            <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+            <div className="rounded-lg bg-teal-500/10 p-2.5 text-teal-600">
               <Icon className="h-5 w-5" />
             </div>
             <Badge variant="secondary" className="text-xs">
