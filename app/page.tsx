@@ -45,6 +45,12 @@ const toolsCollectionJsonLd = {
         name: "Text to SQL AI Converter",
         url: "https://chartdb.io/tools/text-to-sql",
       },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "SQL Minifier",
+        url: "https://chartdb.io/tools/sql-minifier",
+      },
     ],
   },
 };

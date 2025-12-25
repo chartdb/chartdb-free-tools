@@ -1,4 +1,4 @@
-import { Code2, Wand2, Sparkles, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, Minimize2, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -53,6 +53,21 @@ export const tools: Tool[] = [
       "AI SQL generator",
       "English to SQL",
       "SQL from text",
+    ],
+  },
+  {
+    slug: "sql-minifier",
+    name: "SQL Minifier",
+    description:
+      "Compress your SQL queries by removing whitespace and comments. Reduce query size instantly. All minification happens in your browser - your SQL is never sent to any server.",
+    shortDescription: "Compress SQL queries by removing whitespace",
+    icon: Minimize2,
+    keywords: [
+      "SQL minifier",
+      "SQL compressor",
+      "minify SQL",
+      "compress SQL",
+      "SQL size reducer",
     ],
   },
 ];
