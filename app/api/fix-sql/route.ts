@@ -1,17 +1,32 @@
 import OpenAI from "openai";
 import { NextRequest } from "next/server";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
+const allowedOrigins = [
+  "https://chartdb-free-tools.vercel.app",
+  "https://chartdb.io",
+  "https://www.chartdb.io",
+  "https://app.chartdb.io",
+  "http://localhost:3000",
+];
 
-export async function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
+function getCorsHeaders(origin: string | null) {
+  const isAllowed = origin && allowedOrigins.includes(origin);
+  return {
+    "Access-Control-Allow-Origin": isAllowed ? origin : "",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function OPTIONS(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  return new Response(null, { status: 204, headers: getCorsHeaders(origin) });
 }
 
 export async function POST(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+
   if (!process.env.OPENAI_API_KEY) {
     return new Response(
       JSON.stringify({ error: "OpenAI API key not configured" }),
