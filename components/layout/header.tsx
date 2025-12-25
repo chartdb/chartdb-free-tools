@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
 
 export function Header() {
   return (
@@ -42,12 +41,9 @@ export function Header() {
           <Button asChild size="sm">
             <a
               href="https://app.chartdb.io"
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
               Try ChartDB
-              <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </Button>
         </div>
