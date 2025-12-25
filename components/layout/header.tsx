@@ -10,7 +10,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center">
+          <a href="https://chartdb.io" className="flex items-center">
             <Image
               src="/tools/logo-light.png"
               alt="ChartDB"
@@ -27,7 +27,7 @@ export function Header() {
               className="hidden dark:block"
               priority
             />
-          </Link>
+          </a>
           <nav className="hidden sm:flex items-center gap-4">
             <Link
               href="/"
@@ -41,7 +41,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Button asChild size="sm">
             <a
-              href="https://chartdb.io"
+              href="https://app.chartdb.io"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
