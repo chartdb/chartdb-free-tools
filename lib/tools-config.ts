@@ -1,4 +1,4 @@
-import { Code2, Wand2, Sparkles, Minimize2, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, Minimize2, GitCompare, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -68,6 +68,21 @@ export const tools: Tool[] = [
       "minify SQL",
       "compress SQL",
       "SQL size reducer",
+    ],
+  },
+  {
+    slug: "sql-compare",
+    name: "SQL Compare",
+    description:
+      "Compare two SQL queries side by side and see differences instantly. Highlight additions, deletions, and modifications. All comparison happens in your browser - your SQL is never sent to any server.",
+    shortDescription: "Compare SQL queries and see differences",
+    icon: GitCompare,
+    keywords: [
+      "SQL compare",
+      "SQL diff",
+      "compare SQL",
+      "SQL difference",
+      "diff SQL queries",
     ],
   },
 ];

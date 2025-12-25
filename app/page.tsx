@@ -51,6 +51,12 @@ const toolsCollectionJsonLd = {
         name: "SQL Minifier",
         url: "https://chartdb.io/tools/sql-minifier",
       },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: "SQL Compare",
+        url: "https://chartdb.io/tools/sql-compare",
+      },
     ],
   },
 };
