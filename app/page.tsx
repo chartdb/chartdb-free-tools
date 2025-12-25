@@ -57,6 +57,12 @@ const toolsCollectionJsonLd = {
         name: "SQL Compare",
         url: "https://chartdb.io/tools/sql-compare",
       },
+      {
+        "@type": "ListItem",
+        position: 6,
+        name: "DBML to SQL Converter",
+        url: "https://chartdb.io/tools/dbml-to-sql",
+      },
     ],
   },
 };
