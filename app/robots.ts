@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://tools.chartdb.io/sitemap.xml",
+    sitemap: "https://tools.chartdb.io/tools/sitemap.xml",
   };
 }

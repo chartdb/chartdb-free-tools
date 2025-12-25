@@ -12,7 +12,7 @@ export function ToolCard({ tool }: ToolCardProps) {
   const Icon = tool.icon;
 
   return (
-    <Link href={`/tools/${tool.slug}`} className="group block">
+    <Link href={`/${tool.slug}`} className="group block">
       <Card className="h-full transition-all duration-200 hover:border-teal-500/50 hover:shadow-md">
         <CardHeader>
           <div className="flex items-start justify-between">

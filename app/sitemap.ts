@@ -1,17 +1,17 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tools.chartdb.io";
+  const baseUrl = "https://tools.chartdb.io/tools";
 
   return [
     {
-      url: `${baseUrl}/tools`,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/tools/sql-syntax-checker`,
+      url: `${baseUrl}/sql-syntax-checker`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
