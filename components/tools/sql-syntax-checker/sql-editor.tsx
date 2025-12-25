@@ -4,6 +4,8 @@ import { useRef, useEffect, useCallback, useState } from "react";
 import Editor, { OnMount, useMonaco } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
 import type { SQLDialect, ValidationResult } from "@/lib/sql-validator";
+import { Button } from "@/components/ui/button";
+import { Copy, Trash2, Check, Sparkles } from "lucide-react";
 
 interface SQLEditorProps {
   value: string;
@@ -11,6 +13,9 @@ interface SQLEditorProps {
   dialect: SQLDialect;
   placeholder?: string;
   validationResult?: ValidationResult | null;
+  onClear?: () => void;
+  onFixWithAI?: () => void;
+  isFixingWithAI?: boolean;
 }
 
 const dialectToMonacoLanguage: Record<SQLDialect, string> = {
@@ -28,12 +33,35 @@ export function SQLEditor({
   dialect,
   placeholder = "Enter your SQL query here...",
   validationResult,
+  onClear,
+  onFixWithAI,
+  isFixingWithAI,
 }: SQLEditorProps) {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const decorationsRef = useRef<editor.IEditorDecorationsCollection | null>(null);
   const monacoRef = useRef<typeof import("monaco-editor") | null>(null);
   const [isEditorReady, setIsEditorReady] = useState(false);
+  const [copied, setCopied] = useState(false);
   const monaco = useMonaco();
+
+  const handleCopy = useCallback(async () => {
+    if (!value.trim()) return;
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  }, [value]);
+
+  const handleClear = useCallback(() => {
+    if (onClear) {
+      onClear();
+    } else {
+      onChange("");
+    }
+  }, [onClear, onChange]);
 
   const handleEditorMount: OnMount = useCallback((editorInstance, monacoInstance) => {
     editorRef.current = editorInstance;
@@ -211,14 +239,58 @@ export function SQLEditor({
 
   return (
     <div className="relative w-full rounded-lg border border-input bg-background overflow-hidden shadow-sm">
+      {/* Editor Header */}
+      <div className="flex items-center justify-between px-3 py-2 border-b border-border/50 bg-muted/30">
+        <span className="text-sm text-muted-foreground">
+          SQL query to check
+        </span>
+        <div className="flex items-center gap-1">
+          {validationResult && !validationResult.isValid && onFixWithAI && (
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              onClick={onFixWithAI}
+              disabled={isFixingWithAI}
+              title="Fix with AI"
+              className="h-7 w-7"
+            >
+              <Sparkles className="h-4 w-4 text-purple-500" />
+            </Button>
+          )}
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleCopy}
+            disabled={!value.trim()}
+            title="Copy to clipboard"
+            className="h-7 w-7"
+          >
+            {copied ? (
+              <Check className="h-4 w-4 text-success" />
+            ) : (
+              <Copy className="h-4 w-4 text-muted-foreground" />
+            )}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleClear}
+            disabled={!value.trim()}
+            title="Clear editor"
+            className="h-7 w-7"
+          >
+            <Trash2 className="h-4 w-4 text-muted-foreground" />
+          </Button>
+        </div>
+      </div>
       {/* Placeholder overlay */}
       {!value && (
-        <div className="absolute top-3 left-14 text-muted-foreground/60 pointer-events-none z-10 font-mono text-sm">
+        <div className="absolute top-[58px] left-14 text-muted-foreground/60 pointer-events-none z-10 font-mono text-sm">
           {placeholder}
         </div>
       )}
       <Editor
-        height="280px"
+        height="250px"
         language={dialectToMonacoLanguage[dialect]}
         value={value}
         onChange={handleChange}
@@ -233,7 +305,7 @@ export function SQLEditor({
           folding: false,
           lineDecorationsWidth: 16,
           lineNumbersMinChars: 3,
-          renderLineHighlight: "line",
+          renderLineHighlight: "none",
           scrollbar: {
             vertical: "auto",
             horizontal: "auto",
@@ -242,8 +314,8 @@ export function SQLEditor({
             useShadows: false,
           },
           overviewRulerBorder: false,
-          overviewRulerLanes: 1,
-          hideCursorInOverviewRuler: false,
+          overviewRulerLanes: 0,
+          hideCursorInOverviewRuler: true,
           contextmenu: true,
           automaticLayout: true,
           wordWrap: "on",
@@ -265,7 +337,7 @@ export function SQLEditor({
           },
         }}
         loading={
-          <div className="flex items-center justify-center h-[280px] text-muted-foreground bg-muted/30">
+          <div className="flex items-center justify-center h-[250px] text-muted-foreground bg-muted/30">
             <div className="flex items-center gap-2">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
               <span>Loading editor...</span>

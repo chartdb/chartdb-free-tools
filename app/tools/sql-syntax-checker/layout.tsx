@@ -2,24 +2,35 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Free SQL Syntax Checker",
+  title: "SQL Syntax Checker Online | Free SQL Validator - ChartDB",
   description:
-    "Free online SQL syntax checker and validator. Supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, and BigQuery. Validate your SQL queries instantly - all validation happens in your browser.",
+    "Free online SQL syntax checker and validator. Check your SQL queries for errors instantly. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
   keywords: [
     "SQL syntax checker",
     "SQL validator",
-    "validate SQL",
+    "SQL syntax checker online",
+    "free SQL validator",
+    "validate SQL online",
+    "SQL query checker",
     "SQL linter",
     "check SQL syntax",
     "PostgreSQL validator",
     "MySQL validator",
-    "free SQL tool",
+    "SQL Server validator",
+    "BigQuery validator",
   ],
   openGraph: {
-    title: "Free SQL Syntax Checker | ChartDB Tools",
+    title: "SQL Syntax Checker Online | Free SQL Validator - ChartDB",
     description:
-      "Validate your SQL queries instantly. Supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, and BigQuery.",
+      "Free online SQL syntax checker. Validate your SQL queries instantly. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
     url: "https://tools.chartdb.io/tools/sql-syntax-checker",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SQL Syntax Checker Online | Free SQL Validator",
+    description:
+      "Free online SQL syntax checker. Validate your SQL queries instantly. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
   },
   alternates: {
     canonical: "https://tools.chartdb.io/tools/sql-syntax-checker",
@@ -29,9 +40,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "SQL Syntax Checker",
+  name: "SQL Syntax Checker Online",
+  alternateName: ["SQL Validator", "Free SQL Syntax Checker"],
   description:
-    "Free online SQL syntax checker and validator. Supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, and BigQuery.",
+    "Free online SQL syntax checker and validator. Check your SQL queries for errors instantly. Supports PostgreSQL, MySQL, SQLite, SQL Server & BigQuery.",
   url: "https://tools.chartdb.io/tools/sql-syntax-checker",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
@@ -52,6 +64,7 @@ const jsonLd = {
     "SQLite syntax validation",
     "SQL Server syntax validation",
     "BigQuery syntax validation",
+    "AI-powered query fixing",
     "Client-side processing",
     "Privacy-focused",
   ],
@@ -61,6 +74,14 @@ const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the SQL Validator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The SQL Validator is a free online tool that checks your SQL queries for syntax errors before you run them against your database. It instantly identifies issues like missing keywords, mismatched parentheses, and incorrect clause ordering, helping you catch mistakes early and save debugging time.",
+      },
+    },
     {
       "@type": "Question",
       name: "What databases are supported?",

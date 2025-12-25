@@ -7,6 +7,11 @@ import {
 
 const faqs = [
   {
+    question: "What is the SQL Validator?",
+    answer:
+      "The SQL Validator is a free online tool that checks your SQL queries for syntax errors before you run them against your database. It instantly identifies issues like missing keywords, mismatched parentheses, and incorrect clause ordering, helping you catch mistakes early and save debugging time.",
+  },
+  {
     question: "What databases are supported?",
     answer:
       "Our SQL syntax checker supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server (T-SQL), and BigQuery. Each dialect has its own syntax rules, so make sure to select the correct database type before validating your query.",
@@ -33,8 +38,20 @@ const faqs = [
   },
   {
     question: "What is ChartDB?",
-    answer:
-      "ChartDB is a database schema visualization tool that lets you instantly visualize your database structure as entity-relationship diagrams. It supports all major databases and doesn't require direct database access. Try it free at chartdb.io.",
+    answer: (
+      <>
+        ChartDB is a database schema visualization tool that lets you instantly visualize your database structure as entity-relationship diagrams. It supports all major databases and doesn&apos;t require direct database access. Try it free at{" "}
+        <a
+          href="https://chartdb.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline font-medium"
+        >
+          chartdb.io
+        </a>
+        .
+      </>
+    ),
   },
 ];
 
