@@ -1,11 +1,21 @@
 import OpenAI from "openai";
 import { NextRequest } from "next/server";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: corsHeaders });
+}
+
 export async function POST(request: NextRequest) {
   if (!process.env.OPENAI_API_KEY) {
     return new Response(
       JSON.stringify({ error: "OpenAI API key not configured" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 
@@ -19,7 +29,7 @@ export async function POST(request: NextRequest) {
     if (!sql || !dialect) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
@@ -79,13 +89,14 @@ ${error ? `The error reported is: "${error}"` : ""}`;
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
         "Transfer-Encoding": "chunked",
+        ...corsHeaders,
       },
     });
   } catch (error) {
     console.error("Error fixing SQL:", error);
     return new Response(
       JSON.stringify({ error: "Failed to process request" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 }

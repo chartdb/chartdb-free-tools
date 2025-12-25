@@ -99,7 +99,7 @@ ORDER BY created_at`);
     setShowExplanation(true);
 
     try {
-      const response = await fetch("/api/fix-sql", {
+      const response = await fetch("https://chartdb-free-tools.vercel.app/tools/api/fix-sql", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
