@@ -12,7 +12,7 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-light.png"
+              src="/tools/logo-light.png"
               alt="ChartDB"
               width={120}
               height={21}
@@ -20,7 +20,7 @@ export function Header() {
               priority
             />
             <Image
-              src="/logo-dark.png"
+              src="/tools/logo-dark.png"
               alt="ChartDB"
               width={120}
               height={21}

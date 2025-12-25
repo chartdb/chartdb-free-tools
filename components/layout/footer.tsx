@@ -8,14 +8,14 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo-light.png"
+              src="/tools/logo-light.png"
               alt="ChartDB"
               width={80}
               height={14}
               className="dark:hidden"
             />
             <Image
-              src="/logo-dark.png"
+              src="/tools/logo-dark.png"
               alt="ChartDB"
               width={80}
               height={14}
