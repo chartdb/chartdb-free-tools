@@ -29,16 +29,12 @@ export function Footer() {
           <nav className="flex items-center gap-6">
             <a
               href="https://chartdb.io"
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               ChartDB
             </a>
             <a
               href="https://github.com/chartdb/chartdb"
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               GitHub
