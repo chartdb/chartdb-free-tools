@@ -258,7 +258,8 @@ export function minifySQL(sql: string, options: MinifyOptions = DEFAULT_MINIFY_O
   }
 }
 
-export const EXAMPLE_SQL = `-- Get active users with their order counts
+export const EXAMPLE_SQL: Record<MinifierDialect, string> = {
+  postgresql: `-- Get active users with their order counts
 SELECT
     u.id,
     u.name,
@@ -268,8 +269,128 @@ FROM users u
 LEFT JOIN orders o
     ON u.id = o.user_id
 WHERE u.status = 'active'
-    AND u.created_at >= '2024-01-01'
+    AND u.created_at >= CURRENT_DATE - INTERVAL '30 days'
 GROUP BY u.id, u.name, u.email
 HAVING COUNT(o.id) > 0
 ORDER BY order_count DESC
-LIMIT 10;`;
+LIMIT 10;`,
+  mysql: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  mariadb: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  sqlite: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= date('now', '-30 days')
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  transactsql: `-- Get active users with their order counts
+SELECT TOP 10
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATEADD(day, -30, GETDATE())
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC;`,
+  bigquery: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  redshift: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= GETDATE() - INTERVAL '30 days'
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  snowflake: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATEADD(day, -30, CURRENT_DATE())
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+LIMIT 10;`,
+  oracle: `-- Get active users with their order counts
+SELECT
+    u.id,
+    u.name,
+    u.email,
+    COUNT(o.id) AS order_count
+FROM users u
+LEFT JOIN orders o
+    ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= SYSDATE - 30
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY order_count DESC
+FETCH FIRST 10 ROWS ONLY;`,
+};

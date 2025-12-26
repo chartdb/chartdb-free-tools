@@ -34,11 +34,11 @@ export default function SQLComparePage() {
   }, [originalSQL, modifiedSQL]);
 
   const handleLoadExample = useCallback(() => {
-    setOriginalSQL(EXAMPLE_ORIGINAL_SQL);
-    setModifiedSQL(EXAMPLE_MODIFIED_SQL);
+    setOriginalSQL(EXAMPLE_ORIGINAL_SQL[dialect]);
+    setModifiedSQL(EXAMPLE_MODIFIED_SQL[dialect]);
     setResult(null);
     setIsComparing(false);
-  }, []);
+  }, [dialect]);
 
   const handleClear = useCallback(() => {
     setOriginalSQL("");

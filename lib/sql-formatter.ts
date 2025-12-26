@@ -121,4 +121,14 @@ export function formatSQL(sql: string, options: FormatterOptions): FormatResult 
   }
 }
 
-export const EXAMPLE_UNFORMATTED_SQL = `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>='2024-01-01' group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`;
+export const EXAMPLE_UNFORMATTED_SQL: Record<FormatterDialect, string> = {
+  postgresql: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=current_timestamp-interval '30 days' group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  mysql: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=date_sub(now(),interval 30 day) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  mariadb: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=date_sub(now(),interval 30 day) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  sqlite: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=datetime('now','-30 days') group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  transactsql: `select top 10 u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=dateadd(day,-30,getdate()) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc`,
+  bigquery: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=timestamp_sub(current_timestamp(),interval 30 day) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  redshift: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=getdate()-interval '30 days' group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  spark: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=date_sub(current_timestamp(),30) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+  hive: `select u.id,u.name,u.email,count(o.id) as order_count from users u left join orders o on u.id=o.user_id where u.status='active' and u.created_at>=date_sub(current_timestamp,30) group by u.id,u.name,u.email having count(o.id)>0 order by order_count desc limit 10`,
+};
