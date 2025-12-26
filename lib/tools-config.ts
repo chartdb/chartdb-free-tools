@@ -1,4 +1,4 @@
-import { Code2, Wand2, Sparkles, Minimize2, GitCompare, Database, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, Minimize2, GitCompare, Database, BookOpen, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -7,6 +7,7 @@ export interface Tool {
   shortDescription: string;
   icon: LucideIcon;
   keywords: string[];
+  isAIPowered?: boolean;
 }
 
 export const tools: Tool[] = [
@@ -24,6 +25,7 @@ export const tools: Tool[] = [
       "validate SQL",
       "check SQL syntax",
     ],
+    isAIPowered: true,
   },
   {
     slug: "sql-formatter",
@@ -54,6 +56,7 @@ export const tools: Tool[] = [
       "English to SQL",
       "SQL from text",
     ],
+    isAIPowered: true,
   },
   {
     slug: "sql-minifier",
@@ -99,6 +102,23 @@ export const tools: Tool[] = [
       "DBML to MySQL",
       "database schema converter",
     ],
+  },
+  {
+    slug: "sql-query-explainer",
+    name: "SQL Query Explainer",
+    description:
+      "Understand any SQL query in plain English. AI-powered tool that breaks down complex queries step by step, explaining JOINs, WHERE conditions, aggregations, and more. Perfect for learning SQL or reviewing unfamiliar code.",
+    shortDescription: "Explain SQL queries in plain English with AI",
+    icon: BookOpen,
+    keywords: [
+      "SQL query explainer",
+      "explain SQL",
+      "SQL explanation",
+      "understand SQL",
+      "SQL analyzer",
+      "learn SQL",
+    ],
+    isAIPowered: true,
   },
 ];
 
