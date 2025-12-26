@@ -58,7 +58,7 @@ export function ConverterTool({
     setError(null);
 
     try {
-      const response = await fetch("/tools/api/convert-sql", {
+      const response = await fetch("https://chartdb-free-tools.vercel.app/tools/api/convert-sql", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

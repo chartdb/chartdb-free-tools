@@ -11,8 +11,7 @@ import { type SQLExplainerDialect, EXAMPLE_QUERY } from "@/lib/sql-explainer";
 import { BookOpen, AlertCircle, Sparkles } from "lucide-react";
 
 function getApiUrl(endpoint: string): string {
-  // basePath is /tools, so API is always at /tools/api/...
-  return `/tools/api/${endpoint}`;
+  return `https://chartdb-free-tools.vercel.app/tools/api/${endpoint}`;
 }
 
 export default function SQLQueryExplainerPage() {
