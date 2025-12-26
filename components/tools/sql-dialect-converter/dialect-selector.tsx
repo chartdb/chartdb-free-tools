@@ -28,12 +28,12 @@ export function DialectSelector({
     : DIALECTS;
 
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-1.5 flex-1 sm:flex-none">
       <label className="text-sm font-medium text-muted-foreground">
         {label}
       </label>
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-[200px]">
+        <SelectTrigger className="w-full sm:w-[200px]">
           <SelectValue placeholder="Select dialect" />
         </SelectTrigger>
         <SelectContent>
