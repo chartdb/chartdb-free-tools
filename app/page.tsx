@@ -69,6 +69,12 @@ const toolsCollectionJsonLd = {
         name: "SQL Query Explainer",
         url: "https://chartdb.io/tools/sql-query-explainer",
       },
+      {
+        "@type": "ListItem",
+        position: 8,
+        name: "SQL Dialect Converter",
+        url: "https://chartdb.io/tools/sql-dialect-converter",
+      },
     ],
   },
 };

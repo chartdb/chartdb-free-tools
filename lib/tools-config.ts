@@ -1,4 +1,4 @@
-import { Code2, Wand2, Sparkles, Minimize2, GitCompare, Database, BookOpen, type LucideIcon } from "lucide-react";
+import { Code2, Wand2, Sparkles, Minimize2, GitCompare, Database, BookOpen, ArrowRightLeft, type LucideIcon } from "lucide-react";
 
 export interface Tool {
   slug: string;
@@ -117,6 +117,22 @@ export const tools: Tool[] = [
       "understand SQL",
       "SQL analyzer",
       "learn SQL",
+    ],
+    isAIPowered: true,
+  },
+  {
+    slug: "sql-dialect-converter",
+    name: "SQL Dialect Converter",
+    description:
+      "Convert SQL between MySQL, PostgreSQL, SQL Server, SQLite, and MariaDB. AI-powered conversion handles syntax differences, data types, functions, and identifier quoting automatically.",
+    shortDescription: "Convert SQL between different database dialects",
+    icon: ArrowRightLeft,
+    keywords: [
+      "SQL converter",
+      "SQL dialect converter",
+      "MySQL to PostgreSQL",
+      "SQL migration",
+      "convert SQL",
     ],
     isAIPowered: true,
   },
