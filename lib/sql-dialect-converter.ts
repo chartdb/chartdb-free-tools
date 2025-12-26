@@ -44,7 +44,7 @@ export const CONVERSION_PAIRS: ConversionPair[] = [
     target: "postgresql",
     title: "MySQL to PostgreSQL Converter | Free SQL Migration Tool - ChartDB",
     description:
-      "Convert MySQL queries to PostgreSQL syntax instantly. Free online tool handles AUTO_INCREMENT to SERIAL, backticks to double quotes, data type mapping, and more.",
+      "Convert MySQL to PostgreSQL syntax instantly. Handles AUTO_INCREMENT to SERIAL, backticks to double quotes, and data type mapping.",
     h1: "Free MySQL to PostgreSQL Converter",
     keywords: [
       "mysql to postgresql",
@@ -126,7 +126,7 @@ export const CONVERSION_PAIRS: ConversionPair[] = [
     target: "sqlserver",
     title: "MySQL to SQL Server Converter | Free SQL Migration Tool - ChartDB",
     description:
-      "Convert MySQL queries to SQL Server (T-SQL) syntax instantly. Free online tool handles AUTO_INCREMENT to IDENTITY, backticks to brackets, and data type mapping.",
+      "Convert MySQL to SQL Server (T-SQL) syntax instantly. Handles AUTO_INCREMENT to IDENTITY, backticks to brackets, and data types.",
     h1: "Free MySQL to SQL Server Converter",
     keywords: [
       "mysql to sql server",
@@ -167,7 +167,7 @@ export const CONVERSION_PAIRS: ConversionPair[] = [
     target: "mysql",
     title: "SQL Server to MySQL Converter | Free SQL Migration Tool - ChartDB",
     description:
-      "Convert SQL Server (T-SQL) queries to MySQL syntax instantly. Free online tool handles IDENTITY to AUTO_INCREMENT, brackets to backticks, and data type mapping.",
+      "Convert SQL Server (T-SQL) to MySQL syntax instantly. Handles IDENTITY to AUTO_INCREMENT, brackets to backticks, and data types.",
     h1: "Free SQL Server to MySQL Converter",
     keywords: [
       "sql server to mysql",
@@ -208,7 +208,7 @@ export const CONVERSION_PAIRS: ConversionPair[] = [
     target: "postgresql",
     title: "SQL Server to PostgreSQL Converter | Free SQL Migration Tool - ChartDB",
     description:
-      "Convert SQL Server (T-SQL) queries to PostgreSQL syntax instantly. Free online tool handles IDENTITY to SERIAL, brackets to double quotes, and data type mapping.",
+      "Convert SQL Server (T-SQL) to PostgreSQL syntax instantly. Handles IDENTITY to SERIAL, brackets to double quotes, and data types.",
     h1: "Free SQL Server to PostgreSQL Converter",
     keywords: [
       "sql server to postgresql",
@@ -249,7 +249,7 @@ export const CONVERSION_PAIRS: ConversionPair[] = [
     target: "sqlserver",
     title: "PostgreSQL to SQL Server Converter | Free SQL Migration Tool - ChartDB",
     description:
-      "Convert PostgreSQL queries to SQL Server (T-SQL) syntax instantly. Free online tool handles SERIAL to IDENTITY, double quotes to brackets, and data type mapping.",
+      "Convert PostgreSQL to SQL Server (T-SQL) syntax instantly. Handles SERIAL to IDENTITY, double quotes to brackets, and data types.",
     h1: "Free PostgreSQL to SQL Server Converter",
     keywords: [
       "postgresql to sql server",
