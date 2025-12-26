@@ -63,6 +63,12 @@ const toolsCollectionJsonLd = {
         name: "DBML to SQL Converter",
         url: "https://chartdb.io/tools/dbml-to-sql",
       },
+      {
+        "@type": "ListItem",
+        position: 7,
+        name: "SQL Query Explainer",
+        url: "https://chartdb.io/tools/sql-query-explainer",
+      },
     ],
   },
 };
