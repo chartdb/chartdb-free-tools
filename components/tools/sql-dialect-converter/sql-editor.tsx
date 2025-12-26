@@ -1,10 +1,10 @@
 "use client";
 
 import { useRef, useEffect, useCallback, useState } from "react";
-import Image from "next/image";
 import Editor, { OnMount, useMonaco } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
-import { getDialectById, type ConverterDialect } from "@/lib/sql-dialect-converter";
+import { type ConverterDialect } from "@/lib/sql-dialect-converter";
+import { DbLogo } from "@/components/ui/db-logo";
 import { Button } from "@/components/ui/button";
 import { Copy, Trash2, Check } from "lucide-react";
 
@@ -152,22 +152,12 @@ export function SQLEditor({
     [onChange]
   );
 
-  const dialectInfo = getDialectById(dialect);
-
   return (
     <div className="relative w-full rounded-lg border border-input bg-background overflow-hidden shadow-sm">
       <div className="flex items-center justify-between px-3 py-2 border-b border-border/50 bg-muted/30">
         <div className="flex items-center gap-2">
-          {dialectInfo && (
-            <Image
-              src={dialectInfo.logo}
-              alt={dialectInfo.name}
-              width={18}
-              height={18}
-              className="flex-shrink-0"
-            />
-          )}
           <span className="text-sm text-muted-foreground">{label}</span>
+          <DbLogo dialect={dialect} />
         </div>
         <div className="flex items-center gap-1">
           <Button
