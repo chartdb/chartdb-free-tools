@@ -4,7 +4,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "SQL Dialect Converter | Convert SQL Between Databases - ChartDB",
   description:
-    "Free AI-powered SQL dialect converter. Convert SQL between MySQL, PostgreSQL, SQL Server, SQLite, and MariaDB instantly. Handles syntax, data types, and functions.",
+    "Free AI SQL dialect converter. Convert queries between MySQL, PostgreSQL, SQL Server, SQLite & MariaDB. Handles syntax and data types.",
   keywords: [
     "SQL converter",
     "SQL dialect converter",
@@ -45,7 +45,7 @@ const jsonLd = {
     "SQL Migration Tool",
   ],
   description:
-    "Free AI-powered SQL dialect converter. Convert SQL queries and DDL between MySQL, PostgreSQL, SQL Server, SQLite, and MariaDB. Handles data types, functions, and syntax differences.",
+    "Free AI SQL dialect converter. Convert queries and DDL between MySQL, PostgreSQL, SQL Server, SQLite & MariaDB instantly.",
   url: "https://chartdb.io/tools/sql-dialect-converter",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
