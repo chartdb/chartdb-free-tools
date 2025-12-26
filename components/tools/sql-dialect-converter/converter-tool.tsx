@@ -173,29 +173,31 @@ export function ConverterTool({
         )}
 
         {/* Dialect Selectors */}
-        <div className="flex flex-wrap items-end gap-4">
-          <DialectSelector
-            value={sourceDialect}
-            onChange={setSourceDialect}
-            label="From"
-            excludeDialect={targetDialect}
-          />
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={handleSwapDialects}
-            title="Swap dialects"
-            className="mb-0.5"
-          >
-            <ArrowRightLeft className="h-4 w-4" />
-          </Button>
-          <DialectSelector
-            value={targetDialect}
-            onChange={setTargetDialect}
-            label="To"
-            excludeDialect={sourceDialect}
-          />
-          <div className="flex gap-2 ml-auto">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-end gap-4">
+          <div className="flex items-end gap-2 sm:gap-4 w-full sm:w-auto">
+            <DialectSelector
+              value={sourceDialect}
+              onChange={setSourceDialect}
+              label="From"
+              excludeDialect={targetDialect}
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleSwapDialects}
+              title="Swap dialects"
+              className="mb-0.5"
+            >
+              <ArrowRightLeft className="h-4 w-4" />
+            </Button>
+            <DialectSelector
+              value={targetDialect}
+              onChange={setTargetDialect}
+              label="To"
+              excludeDialect={sourceDialect}
+            />
+          </div>
+          <div className="flex gap-2 sm:ml-auto">
             <Button variant="outline" size="sm" onClick={handleLoadExample}>
               Load Example
             </Button>
