@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -8,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { DbLogo } from "@/components/ui/db-logo";
 import { DIALECTS, type ConverterDialect } from "@/lib/sql-dialect-converter";
 
 interface DialectSelectorProps {
@@ -40,14 +40,8 @@ export function DialectSelector({
           {availableDialects.map((dialect) => (
             <SelectItem key={dialect.id} value={dialect.id}>
               <div className="flex items-center gap-2">
-                <Image
-                  src={dialect.logo}
-                  alt={dialect.name}
-                  width={20}
-                  height={20}
-                  className="flex-shrink-0"
-                />
                 <span>{dialect.name}</span>
+                <DbLogo dialect={dialect.id} />
               </div>
             </SelectItem>
           ))}
