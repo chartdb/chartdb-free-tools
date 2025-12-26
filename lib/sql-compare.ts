@@ -69,15 +69,74 @@ export function compareSQL(original: string, modified: string): CompareResult {
   };
 }
 
-export const EXAMPLE_ORIGINAL_SQL = `SELECT
+export const EXAMPLE_ORIGINAL_SQL: Record<CompareDialect, string> = {
+  postgresql: `SELECT
     u.id,
     u.name,
     u.email
 FROM users u
 WHERE u.status = 'active'
-ORDER BY u.name;`;
+ORDER BY u.name;`,
+  mysql: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  mariadb: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  sqlite: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  transactsql: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  bigquery: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  redshift: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  snowflake: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+  oracle: `SELECT
+    u.id,
+    u.name,
+    u.email
+FROM users u
+WHERE u.status = 'active'
+ORDER BY u.name;`,
+};
 
-export const EXAMPLE_MODIFIED_SQL = `SELECT
+export const EXAMPLE_MODIFIED_SQL: Record<CompareDialect, string> = {
+  postgresql: `SELECT
     u.id,
     u.name,
     u.email,
@@ -85,5 +144,86 @@ export const EXAMPLE_MODIFIED_SQL = `SELECT
 FROM users u
 LEFT JOIN orders o ON u.id = o.user_id
 WHERE u.status = 'active'
-    AND u.created_at >= '2024-01-01'
-ORDER BY u.created_at DESC;`;
+    AND u.created_at >= CURRENT_DATE - INTERVAL '30 days'
+ORDER BY u.created_at DESC;`,
+  mysql: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+ORDER BY u.created_at DESC;`,
+  mariadb: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+ORDER BY u.created_at DESC;`,
+  sqlite: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= date('now', '-30 days')
+ORDER BY u.created_at DESC;`,
+  transactsql: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATEADD(day, -30, GETDATE())
+ORDER BY u.created_at DESC;`,
+  bigquery: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+ORDER BY u.created_at DESC;`,
+  redshift: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= GETDATE() - INTERVAL '30 days'
+ORDER BY u.created_at DESC;`,
+  snowflake: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= DATEADD(day, -30, CURRENT_DATE())
+ORDER BY u.created_at DESC;`,
+  oracle: `SELECT
+    u.id,
+    u.name,
+    u.email,
+    u.created_at
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+    AND u.created_at >= SYSDATE - 30
+ORDER BY u.created_at DESC;`,
+};

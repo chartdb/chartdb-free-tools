@@ -38,10 +38,10 @@ export default function SQLMinifierPage() {
   }, [sql, removeComments]);
 
   const handleLoadExample = useCallback(() => {
-    setSQL(EXAMPLE_SQL);
+    setSQL(EXAMPLE_SQL[dialect]);
     setStats(null);
     setError(null);
-  }, []);
+  }, [dialect]);
 
   const handleClear = useCallback(() => {
     setSQL("");

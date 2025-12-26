@@ -7,7 +7,7 @@ import { SQLEditor } from "@/components/tools/sql-query-explainer/sql-editor";
 import { DialectSelector } from "@/components/tools/sql-query-explainer/dialect-selector";
 import { ExplanationDisplay } from "@/components/tools/sql-query-explainer/explanation-display";
 import { FAQSection } from "@/components/tools/sql-query-explainer/faq-section";
-import { type SQLExplainerDialect, EXAMPLE_QUERY } from "@/lib/sql-explainer";
+import { type SQLExplainerDialect, EXAMPLE_QUERIES } from "@/lib/sql-explainer";
 import { BookOpen, AlertCircle, Sparkles } from "lucide-react";
 
 function getApiUrl(endpoint: string): string {
@@ -92,10 +92,10 @@ export default function SQLQueryExplainerPage() {
   }, [sql, dialect]);
 
   const handleLoadExample = useCallback(() => {
-    setSQL(EXAMPLE_QUERY);
+    setSQL(EXAMPLE_QUERIES[dialect]);
     setExplanation("");
     setError(null);
-  }, []);
+  }, [dialect]);
 
   const handleClear = useCallback(() => {
     setSQL("");

@@ -45,9 +45,9 @@ export default function SQLFormatterPage() {
   }, [sql, dialect, keywordCase, indentStyle, tabWidth]);
 
   const handleLoadExample = useCallback(() => {
-    setSQL(EXAMPLE_UNFORMATTED_SQL);
+    setSQL(EXAMPLE_UNFORMATTED_SQL[dialect]);
     setError(null);
-  }, []);
+  }, [dialect]);
 
   const handleClear = useCallback(() => {
     setSQL("");
